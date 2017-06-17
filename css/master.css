@@ -89,6 +89,7 @@ a, a:active, a:default, a:visited {
     position: relative; } }
 
 html {
+  overflow-x: hidden;
   font-size: 14px; }
   @media (min-width: 32rem) {
     html {
@@ -97,7 +98,6 @@ html {
     html {
       font-size: 140%; } }
   html body {
-    overflow-x: hidden;
     text-rendering: optimizeLegibility;
     font-family: 'Sofia Regular';
     line-height: 1.4;

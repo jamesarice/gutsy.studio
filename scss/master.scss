@@ -33,6 +33,7 @@ a, a:active, a:default, a:visited {
   }
 }
 html {
+  overflow-x: hidden;
   font-size: 14px;
   @media (min-width: $mid-break) {
     font-size: 16px;
@@ -41,7 +42,6 @@ html {
     font-size: 140%;
   }
   body {
-    overflow-x: hidden;
     text-rendering: optimizeLegibility;
     font-family: 'Sofia Regular';
     line-height: 1.4;
