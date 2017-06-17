@@ -184,6 +184,8 @@ html {
           html body main section.project header figure {
             width: 500%;
             margin: 0.8rem 0; }
+            html body main section.project header figure video {
+              background: rgba(0, 0, 0, 0.2); }
             html body main section.project header figure a {
               display: inline-block;
               position: relative;
