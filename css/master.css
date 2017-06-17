@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
@@ -70,7 +71,7 @@ a, a:active, a:default, a:visited {
   text-decoration: none;
   border-bottom: 1px solid #000000; }
 
-.heading, html body header h1 span.tag, html body section h1, html body footer h1 {
+.heading, html body > header h1 span.tag, html body main section > h1, html body main section.project:before, html body main section.project article div h2, html body footer h1 {
   font-size: 0.8rem;
   font-family: 'Sofia Light';
   font-variant: small-caps;
@@ -79,7 +80,7 @@ a, a:active, a:default, a:visited {
   margin: 0 0 0.6rem 0; }
 
 @media (min-width: 64rem) {
-  .offset-label, html body section h1, html body footer h1 {
+  .offset-label, html body main section > h1, html body main section.project:before, html body footer h1 {
     font-size: 0.85rem;
     width: 4rem;
     margin-left: -6rem;
@@ -88,72 +89,164 @@ a, a:active, a:default, a:visited {
     position: relative; } }
 
 html {
-  font-size: 16px; }
+  font-size: 14px; }
+  @media (min-width: 32rem) {
+    html {
+      font-size: 16px; } }
   @media (min-width: 120rem) {
     html {
-      font-size: 160%; } }
+      font-size: 140%; } }
   html body {
+    overflow-x: hidden;
     text-rendering: optimizeLegibility;
     font-family: 'Sofia Regular';
     line-height: 1.4;
     margin: 0 auto;
     max-width: 42rem; }
     html body > * {
-      max-width: 32rem; }
+      max-width: 32rem;
+      overflow-x: hidden; }
+      @media (min-width: 32rem) {
+        html body > * {
+          overflow-x: visible; } }
     @media (min-width: 32rem) {
       html body {
         margin: 2rem auto 8rem auto; } }
-    html body header {
+    html body > header {
       padding: 1rem 1rem 2rem 1rem; }
-      html body header h1 {
+      html body > header h1 {
         font-family: 'Sofia Bold';
         font-size: 2.8rem;
         line-height: 1;
         margin-bottom: 0.4rem; }
         @media (min-width: 32rem) {
-          html body header h1 {
+          html body > header h1 {
             font-size: 5.6rem; } }
-        html body header h1 span {
+        html body > header h1 span {
           display: block; }
-          html body header h1 span.tag {
+          html body > header h1 span.tag {
             margin: 0; }
-          html body header h1 span.title {
+          html body > header h1 span.title {
             text-indent: -0.2rem; }
             @media (min-width: 32rem) {
-              html body header h1 span.title {
+              html body > header h1 span.title {
                 text-indent: -0.4rem; } }
-      html body header h2 {
+      html body > header h2 {
         font-size: 1.6rem;
         line-height: 1.2; }
-    html body section {
-      padding: 1rem 1rem 2rem 1rem; }
-      html body section.what ul {
-        columns: 2; }
-        @media (min-width: 32rem) {
-          html body section.what ul {
-            max-width: 18rem; } }
-        html body section.what ul li {
-          margin: 0 0 0.4rem 0; }
-      html body section.who ul li {
-        display: inline-block; }
-        @media (max-width: 32rem) {
-          html body section.who ul li {
-            margin: 0.8rem 0 0 0; } }
-        html body section.who ul li img {
-          vertical-align: middle;
-          margin: 0 1.2rem 0 0; }
-        html body section.who ul li:nth-of-type(1) img {
-          width: 2.2rem; }
-        html body section.who ul li:nth-of-type(2) img {
-          width: 2.8rem; }
-        html body section.who ul li:nth-of-type(3) img {
-          width: 8rem; }
-        html body section.who ul li:nth-of-type(4) img {
-          width: 3.2rem; }
-        html body section.who ul li:nth-of-type(5) img {
-          width: 1.6rem; }
-        html body section.who ul li.last-of-type {
-          margin: 0; }
+    html body main {
+      counter-reset: project-count; }
+      html body main section {
+        padding: 1rem 1rem 2rem 1rem; }
+        html body main section.what ul {
+          columns: 2;
+          margin-bottom: 1.2rem; }
+          @media (min-width: 32rem) {
+            html body main section.what ul {
+              max-width: 18rem; } }
+          html body main section.what ul li {
+            margin: 0 0 0.4rem 0; }
+        html body main section.who ul li {
+          display: inline-block; }
+          @media (max-width: 32rem) {
+            html body main section.who ul li {
+              margin: 0.8rem 0 0 0; } }
+          html body main section.who ul li img {
+            vertical-align: middle;
+            margin: 0 1.2rem 0 0; }
+          html body main section.who ul li:nth-of-type(1) img {
+            width: 2.2rem; }
+          html body main section.who ul li:nth-of-type(2) img {
+            width: 2.8rem; }
+          html body main section.who ul li:nth-of-type(3) img {
+            width: 8rem; }
+          html body main section.who ul li:nth-of-type(4) img {
+            width: 3.2rem; }
+          html body main section.who ul li:nth-of-type(5) img {
+            width: 1.6rem; }
+          html body main section.who ul li.last-of-type {
+            margin: 0; }
+        html body main section.project {
+          counter-increment: project-count;
+          margin: 0 0 0 0; }
+          html body main section.project:before {
+            content: counter(project-count) "/23";
+            display: block; }
+            @media (max-width: 64rem) {
+              html body main section.project:before {
+                margin-bottom: 0; } }
+            @media (min-width: 64rem) {
+              html body main section.project:before {
+                top: 2.4rem; } }
+          html body main section.project header h1 {
+            font-size: 1.4rem;
+            font-family: 'Sofia Bold'; }
+          html body main section.project header figure {
+            width: 500%;
+            margin: 0.8rem 0; }
+            html body main section.project header figure a {
+              display: inline-block;
+              position: relative;
+              text-decoration: none;
+              border-bottom: none;
+              white-space: nowrap;
+              font-size: 0; }
+              html body main section.project header figure a.video:after {
+                content: '►';
+                transition: all 0.6s ease-out;
+                position: absolute;
+                display: inline-block;
+                left: 0.4rem;
+                bottom: 0.4rem;
+                color: #FFFFFF;
+                background: rgba(0, 0, 0, 0.1);
+                text-shadow: 0 1px 0 rgba(0, 0, 0, 0.6);
+                font-size: 0.8rem;
+                padding: 0.6rem 0.8rem;
+                border-radius: 0.2rem;
+                max-width: 1rem;
+                overflow: hidden; }
+              html body main section.project header figure a.video:hover:after {
+                content: "►" "  " "Watch in new tab";
+                background: rgba(0, 0, 0, 0.6);
+                max-width: 20rem; }
+            @media (min-width: 64rem) {
+              html body main section.project header figure {
+                margin: 1.2rem 0 1.2rem -6rem; } }
+            html body main section.project header figure img, html body main section.project header figure video {
+              height: 8rem;
+              display: inline-block; }
+              html body main section.project header figure img.atbash, html body main section.project header figure video.atbash {
+                padding: 0.8rem;
+                background: green;
+                box-sizing: border-box; }
+              @media (min-width: 64rem) {
+                html body main section.project header figure img, html body main section.project header figure video {
+                  height: 12rem; } }
+          html body main section.project article {
+            display: flex;
+            flex-wrap: wrap; }
+            html body main section.project article div:nth-of-type(1) {
+              flex-basis: 100%;
+              margin-bottom: 1rem; }
+            html body main section.project article div:nth-of-type(2) {
+              flex-basis: 50%; }
+            html body main section.project article div:nth-of-type(3) {
+              flex-basis: 50%; }
+            @media (min-width: 64rem) {
+              html body main section.project article div:nth-of-type(1) {
+                flex-basis: 50%; }
+              html body main section.project article div:nth-of-type(2) {
+                flex-basis: 25%; }
+              html body main section.project article div:nth-of-type(3) {
+                flex-basis: 25%; } }
+            html body main section.project article div h2 {
+              margin: 0.4rem 0; }
+            html body main section.project article div p {
+              padding-right: 2rem;
+              box-sizing: border-box; }
+            html body main section.project article div:nth-of-type(2), html body main section.project article div:nth-of-type(3) {
+              color: #999999; }
     html body footer {
       padding: 1rem 1rem 2rem 1rem; }
 
